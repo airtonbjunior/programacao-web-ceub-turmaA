@@ -21,5 +21,7 @@ p {
 }
 
 #paragrafos {
-
+    background-color: black;
+    color: yellow;
+    padding: 50px;
 }
