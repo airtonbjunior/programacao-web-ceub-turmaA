@@ -1,0 +1,8 @@
+h1, h2, h3, h4 {
+    color: blue;
+    background-color: yellow; /* tudo aqui é comentário */
+}
+
+p {
+    color: yellow;
+}
