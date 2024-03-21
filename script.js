@@ -7,13 +7,6 @@ for(let i = 0; i < meuArray.length; i++) {
 
 
 
-
-
-
-
-
-
-
 /*
 //let var1 = 0.1;
 //let var2 = 0.1;
