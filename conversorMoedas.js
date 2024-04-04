@@ -13,7 +13,6 @@ let valoresConversao = {
     }
 }
 
-
 function converter() {
     let valorUsuario = document.getElementById("valor-usuario").value;
 
