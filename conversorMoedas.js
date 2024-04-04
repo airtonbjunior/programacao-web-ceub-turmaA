@@ -34,7 +34,4 @@ function inverter() {
 
     document.getElementById("moeda1").value = moeda2;
     document.getElementById("moeda2").value = moeda1;
-
-    //console.log(moeda1);
-    //console.log(moeda2);
 }
