@@ -13,14 +13,6 @@ let valoresConversao = {
     }
 }
 
-function limpar() {
-    let valorUsuario = document.getElementById("valor-usuario");
-    let resultado = document.getElementById("resultado");
-
-    // Atribuir valor "" para os dois elementos
-}
-
-
 
 function converter() {
     let valorUsuario = document.getElementById("valor-usuario").value;
