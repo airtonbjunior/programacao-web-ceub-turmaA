@@ -22,6 +22,10 @@ valorUsuario.addEventListener("keypress", function(event) {
         inverter();
     }
 
+    if(event.ctrlKey == true && event.code == "KeyL") {
+        limpar();
+    }
+
     if(event.key == "Enter") {
         converter();
     }
