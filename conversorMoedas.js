@@ -29,8 +29,13 @@ if(localStorage.getItem("aceitouCookie") == "1") {
     aceitaMensagem();
 }
 
+
+
+
 function salvaResultadoNoHistorico(conversao) {
     // adicionar o resultado no array de historico e salvar o array de histórico
+    let historico = recuperaHistoricoDeConversoes();
+
     let conversaoEmJson = JSON.stringify(conversao);
     localStorage.setItem("historico", conversaoEmJson);
 }
@@ -38,6 +43,8 @@ function salvaResultadoNoHistorico(conversao) {
 function recuperaHistoricoDeConversoes() {
     let historico = localStorage.getItem("historico");
     let historicoConvertido = JSON.parse(historico);
+
+    console.log(historicoConvertido);
 
     // retornar o array com o histórico de conversões
 }
