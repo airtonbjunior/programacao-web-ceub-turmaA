@@ -13,6 +13,19 @@ let valoresConversao = {
     }
 }
 
+let botaoConverter = document.getElementById("botao-converter");
+botaoConverter.addEventListener("click", converter);
+
+let botaoLimpar = document.getElementById("botao-limpar");
+botaoLimpar.addEventListener("click", limpar);
+
+let botaoInverter = document.getElementById("botao-inverter");
+botaoInverter.addEventListener("click", inverter);
+
+let botaoAceitaMensagem = document.getElementById("botao-aceita-mensagem");
+botaoAceitaMensagem.addEventListener("click", aceitaMensagem);
+
+
 let valorUsuario = document.getElementById("valor-usuario");
 valorUsuario.addEventListener("keypress", function(event) {
 
@@ -32,7 +45,9 @@ valorUsuario.addEventListener("keypress", function(event) {
 
 });
 
-
+function aceitaMensagem() {
+    alert("Usuário aceitou termos do site");
+}
 
 function limpar() {
     let valorUsuario = document.getElementById("valor-usuario");
