@@ -25,6 +25,17 @@ botaoInverter.addEventListener("click", inverter);
 let botaoAceitaMensagem = document.getElementById("botao-aceita-mensagem");
 botaoAceitaMensagem.addEventListener("click", aceitaMensagem);
 
+if(localStorage.getItem("aceitouCookie") == "1") {
+    aceitaMensagem();
+}
+
+function aceitaMensagem() {
+    let divMensagemUsuario = document.getElementById("container-mensagem-usuario");
+    divMensagemUsuario.classList.add("oculto");
+
+    localStorage.setItem("aceitouCookie", "1");
+}
+
 
 let valorUsuario = document.getElementById("valor-usuario");
 valorUsuario.addEventListener("keypress", function(event) {
@@ -45,9 +56,6 @@ valorUsuario.addEventListener("keypress", function(event) {
 
 });
 
-function aceitaMensagem() {
-    alert("Usuário aceitou termos do site");
-}
 
 function limpar() {
     let valorUsuario = document.getElementById("valor-usuario");

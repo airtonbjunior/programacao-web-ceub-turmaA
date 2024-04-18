@@ -20,6 +20,10 @@ input, select, button {
     padding-bottom: 15px;
 }
 
+.oculto {
+    display: none;
+}
+
 
 #titulo { 
     margin-bottom: 50px;
