@@ -29,6 +29,19 @@ if(localStorage.getItem("aceitouCookie") == "1") {
     aceitaMensagem();
 }
 
+function salvaResultadoNoHistorico(conversao) {
+    // adicionar o resultado no array de historico e salvar o array de histórico
+    let conversaoEmJson = JSON.stringify(conversao);
+    localStorage.setItem("historico", conversaoEmJson);
+}
+
+function recuperaHistoricoDeConversoes() {
+    let historico = localStorage.getItem("historico");
+    let historicoConvertido = JSON.parse(historico);
+
+    // retornar o array com o histórico de conversões
+}
+
 function aceitaMensagem() {
     let divMensagemUsuario = document.getElementById("container-mensagem-usuario");
     divMensagemUsuario.classList.add("oculto");
@@ -97,6 +110,15 @@ function converter() {
 
     let paragrafoResultado = document.getElementById("resultado");
     paragrafoResultado.textContent = simbolo + " " + conversao.toFixed(2);
+
+    let resultadoDaConversao = {
+        valor: valorUsuario,
+        moeda1: moedaOrigem,
+        moeda2: moedaDestino,
+        resultado: conversao
+    }
+
+    salvaResultadoNoHistorico(resultadoDaConversao);
 
 }
 
