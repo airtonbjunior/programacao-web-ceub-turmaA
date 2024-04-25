@@ -1,12 +1,22 @@
+body {
+    background-color: #ff4845;
+    font-family: "Poppins", sans-serif;
+}
+
 input, select, button {
-    padding: 10px;
+    padding: 15px;
 }
 
 .container {
-    border: 1px solid #aaa;
+    width: 700px;
+    background-color: #36173d;
     padding: 50px;
     text-align: center;
     margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 25px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .mensagem-usuario {
@@ -27,8 +37,12 @@ input, select, button {
 
 #titulo { 
     margin-bottom: 50px;
+    color: white;
+    
 }
 
 #resultado {
     margin-top: 50px;
+    color: white;
+    font-weight: bold;
 }
