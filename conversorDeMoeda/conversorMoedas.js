@@ -84,28 +84,47 @@ function limpar() {
     resultado.textContent = "";
 }
 
-function buscaAPI() {
-    let url = "https://economia.awesomeapi.com.br/json/last/USD-BRL";
-    fetch(url).then(function(data){
+function buscaAPI(moedaOrigem="USD", moedaDestino="BRL") {
+    
+    console.log(moedaOrigem);
+    console.log(moedaDestino);
+
+    let parametro = moedaOrigem + "-" + moedaDestino;
+    let url = "https://economia.awesomeapi.com.br/json/last/" + parametro;
+
+    console.log(url);
+
+    return fetch(url).then(function(data){
         if(data.status == 200) {
             console.log("Retorno código 200 API!");
         }
         return data.json();
     }).then(function(response){
-        console.log(response["USDBRL"]["ask"]);
-        return response["USDBRL"]["ask"];
+        let objetoEmJson = JSON.stringify(response);
+
+        console.log(objetoEmJson);
+
+        //console.log(response["USDBRL"]["ask"]);
+        //console.log(typeof(response["USDBRL"]["ask"]));
+        
+        return response;
+        //return response;
+        //return response["USDBRL"]["ask"];
     }).catch();
 }
 
 
 function converter() {
-    buscaAPI();
-
-
     let valorUsuario = document.getElementById("valor-usuario").value;
 
     let moedaOrigem  = document.getElementById("moeda1").value;
     let moedaDestino = document.getElementById("moeda2").value;
+
+    buscaAPI(moedaOrigem, moedaDestino).then(function(data){
+        //let objetoRetorno = JSON.parse(data);
+        console.log(data);
+    });
+    return;
 
     /*
     if (moedaOrigem == "real") {
