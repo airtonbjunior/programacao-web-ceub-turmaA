@@ -59,7 +59,7 @@ function aceitaMensagem() {
 let valorUsuario = document.getElementById("valor-usuario");
 valorUsuario.addEventListener("keypress", function(event) {
 
-    console.log(event);
+    //console.log(event);
 
     if(event.ctrlKey == true && event.code == "KeyI") {
         inverter();
@@ -88,9 +88,12 @@ function buscaAPI() {
     let url = "https://economia.awesomeapi.com.br/json/last/USD-BRL";
     fetch(url).then(function(data){
         if(data.status == 200) {
-            console.log("retorno ok!");
+            console.log("Retorno código 200 API!");
         }
-        console.log(data);
+        return data.json();
+    }).then(function(response){
+        console.log(response["USDBRL"]["ask"]);
+        return response["USDBRL"]["ask"];
     }).catch();
 }
 
@@ -104,6 +107,18 @@ function converter() {
     let moedaOrigem  = document.getElementById("moeda1").value;
     let moedaDestino = document.getElementById("moeda2").value;
 
+    /*
+    if (moedaOrigem == "real") {
+        urlAPIParametroMoedaOrigem = "BRL";
+    }
+    if (moedaOrigem == "euro") {
+        urlAPIParametroMoedaOrigem = "EUR";
+    }
+    if (moedaOrigem == "dolar") {
+        urlAPIParametroMoedaOrigem = "USD";
+    }
+    */
+    
     if(valorUsuario == "") {
         alert("Valor não pode ser vazio!");
         return;
