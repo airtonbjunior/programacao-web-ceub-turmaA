@@ -1,5 +1,8 @@
 const express = require('express');
+const cors = require('cors');
 const aplicacao = express();
+
+aplicacao.use(cors());
 
 const valoresConversao = {
     brl: {
@@ -52,8 +55,8 @@ aplicacao.get('/conversao/:moedas', (req, res) => {
     //console.log(req.params.moedas);
     let moedas = req.params.moedas.split("-");
 
-    let moeda1 = moedas[0];
-    let moeda2 = moedas[1];
+    let moeda1 = moedas[0].toLowerCase();
+    let moeda2 = moedas[1].toLowerCase();
 
     console.log(moeda1);
     console.log(moeda2);

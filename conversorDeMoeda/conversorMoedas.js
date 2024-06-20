@@ -69,6 +69,26 @@ function limpar() {
     resultado.textContent = "";
 }
 
+function buscaMinhaAPI(moedaOrigem, moedaDestino) {
+    let urlAPI = "http://localhost:4000/conversao/";
+    urlAPI = urlAPI + moedaOrigem + "-" + moedaDestino;
+
+    return fetch(urlAPI).then(function(data) {
+        if(data.status == 200) {
+            console.log("Retorno da minha API feito com sucesso!");
+        }
+        console.log(data);
+        return data.json();
+    }).then(function(data){
+        console.log(data);
+        return data['fatorDeConversao'];
+    }).catch(function(err){
+        console.log("Deu erro na minha API");
+        console.log(err);
+    })
+}
+
+
 function buscaAPI(moedaOrigem="USD", moedaDestino="BRL") {
     
     console.log(moedaOrigem);
@@ -111,6 +131,40 @@ function converter() {
         return;
     }
 
+    buscaMinhaAPI(moedaOrigem, moedaDestino).then(function(data){
+        console.log("estou na chamada da funcao buscaMinhaAPI dentro de converter()");
+        let conversao = valorUsuario * data;
+
+        let simbolo = "";
+        if (moedaDestino == "BRL") {
+            simbolo = "R$";
+        }
+        if (moedaDestino == "USD") {
+            simbolo = "US$"
+        }
+        if (moedaDestino == "EUR") {
+            simbolo = "€";
+        }
+        if (moedaDestino == "GBP") {
+            simbolo = "£";
+        }
+
+        
+        let resultado = document.getElementById("resultado");
+        resultado.textContent = simbolo + " " + conversao.toFixed(2);
+
+        let resultadoDaConversao = {
+            valor: valorUsuario,
+            moeda1: moedaOrigem,
+            moeda2: moedaDestino,
+            resultado: conversao
+        }
+        salvaResultadoNoHistorico(resultadoDaConversao);
+
+
+    });
+
+    /*
     buscaAPI(moedaOrigem, moedaDestino).then(function(data){
         let conversao = valorUsuario * data["ask"];
 
@@ -139,8 +193,8 @@ function converter() {
             resultado: conversao
         }
         salvaResultadoNoHistorico(resultadoDaConversao);
-
     });    
+    */
 }
 
 function inverter() {
